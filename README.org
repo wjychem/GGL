@@ -17,7 +17,7 @@ Simply clone this repository via
 ** HiC2graph
 To fulfill network inference and graph analyses from Hi-C datasets, first 
 #+BEGIN_SRC sh
-  mkdir Data graph_statistics hiç
+  mkdir Data graph_statistics hic
 #+END_SRC
 Then run HiC2graph_statistics.m. This will derive the closeness centrality and average shortest path length of chromatin contacts networks (CCNs) as well as the inputs for betweenness centrality calculation and Poincaré Embeddings.
 
