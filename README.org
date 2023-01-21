@@ -1,0 +1,34 @@
+# GGL
+
+** GenomeGeometricLearning
+Implementation of [[https://www.biorxiv.org/content/10.1101/2022.08.03.502724v1.article-metrics][Characterization of network hierarchy reflects cell-state specificity in genome organization]]
+Adapted PyTorch implementation of [[https://papers.nips.cc/paper/7213-poincare-embeddings-for-learning-hierarchical-representations][Poincaré Embeddings for Learning Hierarchical Representations]]
+
+** Installation
+Simply clone this repository via
+#+BEGIN_SRC sh
+  git clone GGL.git
+  cd GGL
+  conda env create -f environment.yml
+  python setup.py build_ext --inplace
+  source activate poincare
+#+END_SRC
+
+** HiC2graph
+To fulfill network inference and graph analyses from Hi-C datasets, first 
+#+BEGIN_SRC sh
+  mkdir Data graph_statistics hiç
+#+END_SRC
+Then run HiC2graph_statistics.m. This will derive the closeness centrality and average shortest path length of chromatin contacts networks (CCNs) as well as the inputs for betweenness centrality calculation and Poincaré Embeddings.
+
+** Embed Chromatin Contact Networks in Poincaré disk
+#+BEGIN_SRC sh
+  cd train_script/
+  ./sub-train-hic.sh
+#+END_SRC
+This will train the embeddings and save the output results in the /hic directory/ with the same name as input Hi-C datasets. Scripts in /train_script directory/ contain the hyperparameter setting to reproduce the results for [[https://www.biorxiv.org/content/10.1101/2022.08.03.502724v1.article-metrics][Characterization of network hierarchy reflects cell-state specificity in genome organization]].The loci ids and embedded coordinates will be saved in the output folder as keys.*.txt and pe.coors.*.txt, respectively, which are used for visualization.
+
+** Dependencies
+- Python 3 with NumPy
+- PyTorch
+- Scikit-Learn
