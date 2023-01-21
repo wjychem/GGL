@@ -7,7 +7,7 @@ Adapted PyTorch implementation of [[https://papers.nips.cc/paper/7213-poincare-e
 ** Installation
 Simply clone this repository via
 #+BEGIN_SRC sh
-  git clone GGL.git
+  git clone https://github.com/wjychem/GGL.git
   cd GGL
   conda env create -f environment.yml
   python setup.py build_ext --inplace
